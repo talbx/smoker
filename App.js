@@ -1,49 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import {createAppContainer} from 'react-navigation';
+import {StackNavigator, TabNavigator} from "./src/modules/utils/TabNavigator";
+import {Provider} from 'react-redux';
+import {createStore} from "redux";
+import {smokerReducer} from "./src/modules/state/reducer";
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+export const initialState = {
+  settings: {
+    username: 'Hansi',
+    stopSmokingDate: new Date(2018, 11, 14),
+    cigarettesPerDay: 20,
+    cigarettesPerPack: 21,
+    cigaretteBrand: "Gauloises",
+    pricePerPack: "2.50"
+  }
+};
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const store = createStore(smokerReducer, initialState);
 
-type Props = {};
-export default class App extends Component<Props> {
+export const AppContainer = createAppContainer(TabNavigator);
+
+export default class AppComponent extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+        <Provider store={store}>
+          <AppContainer/>
+        </Provider>
+    )
+  };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
