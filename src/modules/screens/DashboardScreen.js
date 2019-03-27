@@ -7,7 +7,7 @@ class DashboardScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {cleanSince: createCleanSince(new Date(), this.props.settings.stopSmokingDate)};
+        this.state = {cleanSince: createCleanSince(new Date(), this.props.settings.smoking.stopSmokingDate)};
     }
 
     componentDidMount() {
@@ -20,7 +20,7 @@ class DashboardScreen extends React.Component {
 
     tick2() {
         this.setState({
-            counter: this.state.cleanSince = createCleanSince(new Date(), this.props.settings.stopSmokingDate)
+            counter: this.state.cleanSince = createCleanSince(new Date(), this.props.settings.smoking.stopSmokingDate)
         });
     }
 
@@ -28,7 +28,7 @@ class DashboardScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <ScrollView>
-                    <Text style={styles.welcome}>Moin moin {this.props.settings.username}!</Text>
+                    <Text style={styles.welcome}>Moin moin {this.props.settings.profile.username}!</Text>
                     <Text style={styles.instructions}>You are clean since{"\n"}
                         {this.state.cleanSince.months} Months{"\n"}
                         {this.state.cleanSince.days} Days{"\n"}
