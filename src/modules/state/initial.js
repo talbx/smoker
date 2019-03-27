@@ -8,7 +8,7 @@ export const initialState = {
     },
     settings: {
         profile: {
-            username: 'Hansi',
+            username: 'Tom',
         },
         smoking: {
             stopSmokingDate: new Date(2018, 11, 14),
