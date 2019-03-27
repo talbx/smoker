@@ -33,7 +33,7 @@ class SettingsScreen extends Component {
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
                             <Icon name="ios-barcode"/>
                         </Left>
@@ -45,7 +45,7 @@ class SettingsScreen extends Component {
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
                             <Icon name="ios-filing"/>
                         </Left>
@@ -57,7 +57,7 @@ class SettingsScreen extends Component {
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
                             <Icon name="ios-analytics"/>
                         </Left>
@@ -69,7 +69,7 @@ class SettingsScreen extends Component {
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
                             <Icon name="ios-pricetag"/>
                         </Left>
