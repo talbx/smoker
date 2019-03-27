@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
-import {createCleanSince} from "../../utils/TimerUtils";
+import {createCleanSince} from "../utils/TimerUtils";
 
 class DashboardScreen extends React.Component {
 
@@ -31,7 +31,6 @@ class DashboardScreen extends React.Component {
                     <Text style={styles.welcome}>Moin moin {this.props.settings.username}!</Text>
                     <Text style={styles.instructions}>You are clean since{"\n"}
                         {this.state.cleanSince.months} Months{"\n"}
-                        {this.state.cleanSince.weeks} Weeks{"\n"}
                         {this.state.cleanSince.days} Days{"\n"}
                         {this.state.cleanSince.hours} Hours{"\n"}
                         {this.state.cleanSince.minutes} Minutes and{"\n"}

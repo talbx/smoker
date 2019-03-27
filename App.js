@@ -3,19 +3,8 @@ import {Provider} from 'react-redux';
 import {createStore} from "redux";
 import {smokerReducer} from "./src/modules/state/reducer";
 import {createAppContainer} from 'react-navigation';
-import tabNavigator from "./src/modules/Navigator/Navigator";
-
-
-export const initialState = {
-    settings: {
-        username: 'Hansi',
-        stopSmokingDate: new Date(2018, 11, 14),
-        cigarettesPerDay: 20,
-        cigarettesPerPack: 21,
-        cigaretteBrand: "Gauloises",
-        pricePerPack: "2.50"
-    }
-};
+import tabNavigator from "./src/modules/screens/Navigator";
+import {initialState} from "./src/modules/state/initial";
 
 const store = createStore(smokerReducer, initialState);
 const AppContainer = createAppContainer(tabNavigator);

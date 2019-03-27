@@ -1,32 +1,31 @@
 import React, {Component} from 'react';
-import {Body, Button, Container, Content, Header, Icon, Left, ListItem, Right, Text} from 'native-base';
+import {Body, Title, Container, Content, Header, Icon, Left, ListItem, Right, Text} from 'native-base';
 import {connect} from "react-redux";
 
 class SettingsScreen extends Component {
     render() {
         return (
             <Container>
-                <Header/>
+                <Header transparent>
+                    <Title>Settings</Title>
+                </Header>
                 <Content>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: "#007AFF"}}>
-                                <Icon name="ios-person"/>
-                            </Button>
+                            <Icon name="ios-person"/>
                         </Left>
                         <Body>
                         <Text>Profile</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.username}</Text>
-                            <Icon name="arrow-forward"/>
+                            <Text>{this.props.settings.profile.username}</Text>
+                            <Icon onPress={() => this.props.navigation.navigate("ProfileSettings")}
+                                  name="arrow-forward"/>
                         </Right>
                     </ListItem>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: 'red'}}>
-                                <Icon name="ios-calendar"/>
-                            </Button>
+                            <Icon name="ios-calendar"/>
                         </Left>
                         <Body>
                         <Text>Stop Smoking Date</Text>
@@ -37,57 +36,49 @@ class SettingsScreen extends Component {
                     </ListItem>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: 'orange'}}>
-                                <Icon name="ios-barcode"/>
-                            </Button>
+                            <Icon name="ios-barcode"/>
                         </Left>
                         <Body>
                         <Text>Cigs Per Day</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.cigarettesPerDay}</Text>
+                            <Text>{this.props.settings.smoking.cigarettesPerDay}</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: 'orange'}}>
-                                <Icon name="ios-filing"/>
-                            </Button>
+                            <Icon name="ios-filing"/>
                         </Left>
                         <Body>
                         <Text>Cigs Per Pack</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.cigarettesPerPack}</Text>
+                            <Text>{this.props.settings.smoking.cigarettesPerPack}</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: 'orange'}}>
-                                <Icon name="ios-analytics"/>
-                            </Button>
+                            <Icon name="ios-analytics"/>
                         </Left>
                         <Body>
                         <Text>Brand</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.cigaretteBrand}</Text>
+                            <Text>{this.props.settings.smoking.cigaretteBrand}</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
                     <ListItem icon>
                         <Left>
-                            <Button style={{backgroundColor: 'orange'}}>
-                                <Icon name="ios-pricetag"/>
-                            </Button>
+                            <Icon name="ios-pricetag"/>
                         </Left>
                         <Body>
                         <Text>Price per Pack</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.pricePerPack}</Text>
+                            <Text>{this.props.settings.smoking.pricePerPack}</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
@@ -102,6 +93,5 @@ const mapStateToProps = state => {
         settings: state.settings
     }
 };
-
 
 export const settingsScreen = connect(mapStateToProps)(SettingsScreen);

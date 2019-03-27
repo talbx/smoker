@@ -1,5 +1,5 @@
 import {CleanSince} from "../model/CleanSince";
-import moment from "moment";
+import moment, {Duration} from "moment";
 
 export function createCleanSince(closeDate, farDate) {
     const close = moment(closeDate);
@@ -8,6 +8,6 @@ export function createCleanSince(closeDate, farDate) {
     return createCleanSinceViaDuration(duration);
 }
 
-export function createCleanSinceViaDuration(duration) {
-    return new CleanSince(duration.months(), duration.weeks(), duration.days(), duration.hours(), duration.minutes(), duration.seconds())
+export function createCleanSinceViaDuration(duration: Duration): CleanSince {
+    return new CleanSince(duration.months(), duration.days(), duration.hours(), duration.minutes(), duration.seconds())
 }

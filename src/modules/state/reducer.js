@@ -14,11 +14,11 @@ export const smokerReducer = (state = initialState, action) => {
             return {
                 ...state, settings: {
                     username: action.payload,
-                    stopSmokingDate: state.settings.stopSmokingDate,
-                    cigarettesPerDay: state.settings.cigarettesPerDay,
-                    cigarettesPerPack: state.settings.cigarettesPerPack,
-                    cigaretteBrand: state.settings.cigaretteBrand,
-                    pricePerPack: state.settings.pricePerPack
+                    stopSmokingDate: state.settings.smoking.stopSmokingDate,
+                    cigarettesPerDay: state.settings.smoking.cigarettesPerDay,
+                    cigarettesPerPack: state.settings.smoking.cigarettesPerPack,
+                    cigaretteBrand: state.settings.smoking.cigaretteBrand,
+                    pricePerPack: state.settings.smoking.pricePerPack
                 }
             };
         case CHANGE_STOP_SMOKING_DATE:
