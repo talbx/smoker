@@ -6,14 +6,16 @@ import {aboutScreen} from "./AboutScreen";
 import {settingsScreen} from "./SettingsScreen";
 import {Screens} from "./Screens";
 import {profileSettings} from "./ProfileSettings";
+import {smokingSettings} from "./SmokingSettings";
 
 
 export const settingsStack = createStackNavigator({
         SettingsOverview: {screen: settingsScreen},
-        ProfileSettings: {screen: profileSettings}
+        ProfileSettings: {screen: profileSettings},
+        SmokingSettings: {screen: smokingSettings}
     },
     {
-        order: ['SettingsOverview', 'ProfileSettings', 'CigaretteSettings'],
+        order: ['SettingsOverview', 'ProfileSettings', 'SmokingSettings'],
     });
 
 export const tabNavigator = createBottomTabNavigator({

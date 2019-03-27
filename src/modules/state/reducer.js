@@ -24,7 +24,7 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
-                        ...state.smoking,
+                        ...state.settings.smoking,
                         stopSmokingDate: action.payload,
                     }
                 }
@@ -34,7 +34,7 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
-                        ...state.smoking,
+                        ...state.settings.smoking,
                         cigarettesPerDay: action.payload,
                     }
                 }
@@ -44,7 +44,7 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
-                        ...state.smoking,
+                        ...state.settings.smoking,
                         cigaretteBrand: action.payload,
                     }
                 }
@@ -54,7 +54,7 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
-                        ...state.smoking,
+                        ...state.settings.smoking,
                         pricePerPack: action.payload,
                     }
                 }
@@ -64,7 +64,7 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
-                        ...state.smoking,
+                        ...state.settings.smoking,
                         cigarettesPerPack: action.payload,
                     }
                 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Body, Title, Container, Content, Header, Icon, Left, ListItem, Right, Text} from 'native-base';
+import {Body, Container, Content, Header, Icon, Left, ListItem, Right, Text, Title} from 'native-base';
 import {connect} from "react-redux";
 
 class SettingsScreen extends Component {
@@ -10,7 +10,7 @@ class SettingsScreen extends Component {
                     <Title>Settings</Title>
                 </Header>
                 <Content>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("ProfileSettings")} icon>
                         <Left>
                             <Icon name="ios-person"/>
                         </Left>
@@ -19,11 +19,10 @@ class SettingsScreen extends Component {
                         </Body>
                         <Right>
                             <Text>{this.props.settings.profile.username}</Text>
-                            <Icon onPress={() => this.props.navigation.navigate("ProfileSettings")}
-                                  name="arrow-forward"/>
+                            <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
-                    <ListItem icon>
+                    <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
                             <Icon name="ios-calendar"/>
                         </Left>
