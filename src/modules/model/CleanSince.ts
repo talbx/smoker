@@ -4,8 +4,10 @@ export class CleanSince {
     hours: number;
     days: number;
     months: number;
+    years: number;
 
-    constructor(months, days, hours, minutes, seconds) {
+    constructor(years, months, days, hours, minutes, seconds) {
+        this.years = years;
         this.months = months;
         this.days = days;
         this.hours = hours;

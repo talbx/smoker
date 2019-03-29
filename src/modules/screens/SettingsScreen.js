@@ -24,7 +24,7 @@ class SettingsScreen extends Component {
                     </ListItem>
                     <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
-                            <Icon name="ios-calendar"/>
+                            <Icon type="MaterialCommunityIcons" name="smoking" />
                         </Left>
                         <Body>
                         <Text>Stop Smoking Date</Text>

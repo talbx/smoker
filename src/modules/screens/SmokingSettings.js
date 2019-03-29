@@ -26,8 +26,8 @@ export class SmokingSettings extends Component {
                                 modalTransparent={false}
                                 animationType={"fade"}
                                 androidMode={"default"}
-                                placeHolderText="Select date"
-                                textStyle={{color: "green"}}
+                                placeHolderText={this.props.smoking.stopSmokingDate.toDateString()}
+                                textStyle={{color: "black"}}
                                 placeHolderTextStyle={{color: "#d3d3d3"}}
                                 onDateChange={date => this.props.updateStopSmokingDate(date)}
                                 disabled={false}

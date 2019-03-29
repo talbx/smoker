@@ -5,6 +5,7 @@ import {dashboardScreen} from "./DashboardScreen";
 import {aboutScreen} from "./AboutScreen";
 import {settingsScreen} from "./SettingsScreen";
 import {Screens} from "./Screens";
+
 import {profileSettings} from "./ProfileSettings";
 import {smokingSettings} from "./SmokingSettings";
 
@@ -28,31 +29,25 @@ export const tabNavigator = createBottomTabNavigator({
         swipeEnabled: false,
         tabBarComponent: props => {
             return (
-                <Footer>
-                    <FooterTab>
-                        <Button
-                            vertical
-                            active={props.navigation.state.index === 0}
-                            onPress={() => props.navigation.navigate(Screens.DASHBOARD.title)}>
-                            <Icon name={Screens.DASHBOARD.icon}/>
-                            <Text>Dashboard</Text>
-                        </Button>
-                        <Button
-                            vertical
-                            active={props.navigation.state.index === 1}
-                            onPress={() => props.navigation.navigate(Screens.SETTINGS.title)}>
-                            <Icon name={Screens.SETTINGS.icon}/>
-                            <Text>Settings</Text>
-                        </Button>
-                        <Button
-                            vertical
-                            active={props.navigation.state.index === 2}
-                            onPress={() => props.navigation.navigate(Screens.ABOUT.title)}>
-                            <Icon name={Screens.ABOUT.icon}/>
-                            <Text>About</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
+                    <Footer>
+                        <FooterTab>
+                            <Button
+                                active={props.navigation.state.index === 0}
+                                onPress={() => props.navigation.navigate(Screens.DASHBOARD.title)}>
+                                <Icon type="MaterialCommunityIcons" name="smoking"/>
+                            </Button>
+                            <Button
+                                active={props.navigation.state.index === 1}
+                                onPress={() => props.navigation.navigate(Screens.SETTINGS.title)}>
+                                <Icon name={Screens.SETTINGS.icon}/>
+                            </Button>
+                            <Button
+                                active={props.navigation.state.index === 2}
+                                onPress={() => props.navigation.navigate(Screens.ABOUT.title)}>
+                                <Icon name={Screens.ABOUT.icon}/>
+                            </Button>
+                        </FooterTab>
+                    </Footer>
             );
         }
     });

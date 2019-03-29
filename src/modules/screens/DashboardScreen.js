@@ -25,6 +25,32 @@ class DashboardScreen extends React.Component {
     }
 
     render() {
+        if (this.state.cleanSince.years > 0) {
+            return this.years();
+        }
+        return this.state.cleanSince.months > 0 ? this.months() : this.days();
+    }
+
+    years() {
+        return (
+            <View style={styles.container}>
+                <ScrollView>
+                    <Text style={styles.welcome}>Moin moin {this.props.settings.profile.username}!</Text>
+                    <Text style={styles.instructions}>You are clean since{"\n"}
+                        {this.state.cleanSince.years} Years{"\n"}
+                        {this.state.cleanSince.months} Months{"\n"}
+                        {this.state.cleanSince.days} Days{"\n"}
+                        {this.state.cleanSince.hours} Hours{"\n"}
+                        {this.state.cleanSince.minutes} Minutes and{"\n"}
+                        {this.state.cleanSince.seconds} Seconds
+                    </Text>
+                </ScrollView>
+            </View>
+        );
+    }
+
+
+    months() {
         return (
             <View style={styles.container}>
                 <ScrollView>
@@ -40,7 +66,24 @@ class DashboardScreen extends React.Component {
             </View>
         );
     }
+
+    days() {
+        return (
+            <View style={styles.container}>
+                <ScrollView>
+                    <Text style={styles.welcome}>Moin moin {this.props.settings.profile.username}!</Text>
+                    <Text style={styles.instructions}>You are clean since{"\n"}
+                        {this.state.cleanSince.days} Days{"\n"}
+                        {this.state.cleanSince.hours} Hours{"\n"}
+                        {this.state.cleanSince.minutes} Minutes and{"\n"}
+                        {this.state.cleanSince.seconds} Seconds
+                    </Text>
+                </ScrollView>
+            </View>
+        );
+    }
 }
+
 
 const styles = StyleSheet.create({
     container: {
