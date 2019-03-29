@@ -11,3 +11,7 @@ export function createCleanSince(closeDate, farDate) {
 export function createCleanSinceViaDuration(duration) {
     return new CleanSince(duration.years(), duration.months(), duration.days(), duration.hours(), duration.minutes(), duration.seconds())
 }
+
+export function diffInDays(close, far){
+    return moment.duration(moment(close).diff(moment(far)));
+}

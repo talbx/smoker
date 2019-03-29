@@ -2,12 +2,22 @@ import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
+import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
+import SavingsIndicator from "./SavingsIndicator";
 
 class DashboardScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {cleanSince: createCleanSince(new Date(), this.props.settings.smoking.stopSmokingDate)};
+        const cigs = calculateCigarettes(this.props.settings.smoking.stopSmokingDate, this.props.settings.smoking.cigarettesPerDay);
+        const packs = calculatePacks(cigs, this.props.settings.smoking.cigarettesPerPack);
+        const money = calculateSavedMoney(packs, this.props.settings.smoking.pricePerPack);
+        this.state = {
+            cleanSince: createCleanSince(new Date(), this.props.settings.smoking.stopSmokingDate),
+            cigSavings: cigs,
+            packSavings: packs,
+            moneySavings: money
+        };
     }
 
     componentDidMount() {
@@ -44,6 +54,9 @@ class DashboardScreen extends React.Component {
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
                         {this.state.cleanSince.seconds} Seconds
                     </Text>
+                    <SavingsIndicator savedMoney={this.state.moneySavings}
+                                      nonBoughtPacks={this.state.packSavings}
+                                      nonSmokedCigars={this.state.cigSavings}/>
                 </ScrollView>
             </View>
         );
@@ -68,6 +81,12 @@ class DashboardScreen extends React.Component {
     }
 
     days() {
+
+        const savings = new Savings(this.state.settings.smoking.cigarettesPerDay,
+            this.state.settings.smoking.cigarettesPerPack,
+            this.state.settings.smoking.pricePerPack,
+            this.state.settings.smoking.stopSmokingDate);
+
         return (
             <View style={styles.container}>
                 <ScrollView>
