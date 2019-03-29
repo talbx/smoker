@@ -1,10 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {createStore} from "redux";
-import {smokerReducer} from "./src/modules/state/reducer";
+import {smokerReducer} from "./src/state/reducer";
 import {createAppContainer} from 'react-navigation';
-import tabNavigator from "./src/modules/screens/Navigator";
-import {initialState} from "./src/modules/state/initial";
+import tabNavigator from "./src/modules/Navigator";
+import {initialState} from "./src/state/initial";
 
 const store = createStore(smokerReducer, initialState);
 const AppContainer = createAppContainer(tabNavigator);

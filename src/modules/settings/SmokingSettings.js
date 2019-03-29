@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-import {Container, Content, DatePicker, Icon, Form, Header, Input, Item, Label, Picker, Text} from "native-base";
+import {Container, Content, DatePicker, Form, Header, Icon, Input, Item, Label, Picker} from "native-base";
 import {
     CHANGE_CIGARETTE_BRAND,
     CHANGE_CIGARETTES_PER_DAY,
     CHANGE_CIGARETTES_PER_PACK,
     CHANGE_STOP_SMOKING_DATE
-} from "../state/actions";
+} from "../../state/actions";
 import {connect} from "react-redux";
 
 export class SmokingSettings extends Component {

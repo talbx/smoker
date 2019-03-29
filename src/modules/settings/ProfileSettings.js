@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Container, Content, Form, Header, Input, Item, Label} from 'native-base'
 import {connect} from "react-redux";
-import {CHANGE_USERNAME} from "../state/actions";
+import {CHANGE_USERNAME} from "../../state/actions";
 
 class ProfileSettings extends Component {
     render() {

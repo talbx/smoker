@@ -1,4 +1,4 @@
-import {CigaretteBrand} from "../model/CigaretteBrand";
+import {CigaretteBrand} from "../modules/dashboard/model/CigaretteBrand";
 import {asList} from "./Functions";
 
 export class BrandSupplier {

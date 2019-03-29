@@ -1,5 +1,5 @@
-import {CleanSince} from "../model/CleanSince";
-import moment from "moment";
+import {CleanSince} from "../modules/dashboard/model/CleanSince";
+import moment from "moment/moment";
 
 export function createCleanSince(closeDate, farDate) {
     const close = moment(closeDate);
