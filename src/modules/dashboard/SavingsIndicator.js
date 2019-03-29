@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import {StyleSheet, Text, View} from "react-native";
 import * as PropTypes from "prop-types";
+import {connect} from "react-redux";
 
-class SavingsIndicator extends Component {
+export class SavingsIndicator extends Component {
 
     static propTypes = {
         savedMoney: PropTypes.number.isRequired,
@@ -15,8 +16,8 @@ class SavingsIndicator extends Component {
             <View>
                 <Text style={styles.instructions}>You did not smoke a total of{"\n"}
                     {this.props.nonSmokedCigars} Cigarettes, did not buy{"\n"}
-                    {this.state.cleanSince.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
-                    {this.state.cleanSince.savedMoney} $$$.
+                    {this.props.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
+                    {this.props.savedMoney} $$$.
                 </Text>
             </View>
         );
@@ -71,4 +72,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default SavingsIndicator;
+export const savingsIndicator = connect(mapStateToProps)(SavingsIndicator);
