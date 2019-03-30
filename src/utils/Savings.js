@@ -2,13 +2,13 @@ import moment from "moment/moment";
 
 export function calculateCigarettes(date, cigsPerDay) {
     const daysSince = moment.duration(moment(new Date()).diff(moment(date))).asDays();
-    return daysSince * cigsPerDay;
+    return Math.round(daysSince * cigsPerDay);
 }
 
 export function calculateSavedMoney(packs, pricePerPack) {
-    return packs * pricePerPack;
+    return Math.round(packs * pricePerPack);
 }
 
 export function calculatePacks(cigarettes, cigsPerPack) {
-    return cigarettes / cigsPerPack;
+    return Math.round(cigarettes / cigsPerPack);
 }

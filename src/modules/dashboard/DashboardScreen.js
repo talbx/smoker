@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
 import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
-import {SavingsIndicator} from "./SavingsIndicator";
+import SavingsIndicator from "./SavingsIndicator";
 
 class DashboardScreen extends React.Component {
 

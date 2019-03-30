@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import {StyleSheet, Text, View} from "react-native";
 import * as PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {getStopSmokingDate} from "../../state/selectors";
 
-export class SavingsIndicator extends Component {
+class SavingsIndicator extends Component {
 
     static propTypes = {
         savedMoney: PropTypes.number.isRequired,
@@ -17,10 +18,15 @@ export class SavingsIndicator extends Component {
                 <Text style={styles.instructions}>You did not smoke a total of{"\n"}
                     {this.props.nonSmokedCigars} Cigarettes, did not buy{"\n"}
                     {this.props.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
-                    {this.props.savedMoney} $$$.
+                    {this.props.savedMoney} $$$.{"\n"}
+                    Your stop smoking date = {this.props.stopSmokingDate.toDateString()}
                 </Text>
             </View>
         );
+    }
+
+    recalculate(){
+        
     }
 }
 
@@ -68,8 +74,8 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state => {
     return {
-        smoking: state.settings.smoking
+        stopSmokingDate: getStopSmokingDate(state)
     }
 };
 
-export const savingsIndicator = connect(mapStateToProps)(SavingsIndicator);
+export default connect(mapStateToProps)(SavingsIndicator);
