@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Container, Content, Form, Header, Input, Item, Label} from 'native-base'
+import {Container, Content, Form, Header, Input, Item, Label, Title} from 'native-base'
 import {connect} from "react-redux";
 import {CHANGE_USERNAME} from "../../state/actions";
 
@@ -7,7 +7,9 @@ class ProfileSettings extends Component {
     render() {
         return (
             <Container>
-                <Header/>
+                <Header transparent>
+                    <Title>Profile Settings</Title>
+                </Header>
                 <Content>
                     <Form>
                         <Item stackedLabel>

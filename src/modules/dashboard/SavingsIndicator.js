@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from "react-native";
 import * as PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getStopSmokingDate} from "../../state/selectors";
+import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
 
 class SavingsIndicator extends Component {
 
@@ -16,9 +17,9 @@ class SavingsIndicator extends Component {
         return (
             <View>
                 <Text style={styles.instructions}>You did not smoke a total of{"\n"}
-                    {this.props.nonSmokedCigars} Cigarettes, did not buy{"\n"}
-                    {this.props.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
-                    {this.props.savedMoney} $$$.{"\n"}
+                    {this.props.cigs} Cigarettes, did not buy{"\n"}
+                    {this.props.packs} Packs of Cigarettes and saved{"\n"}
+                    {this.props.price} $$$.{"\n"}
                     Your stop smoking date = {this.props.stopSmokingDate.toDateString()}
                 </Text>
             </View>
@@ -73,9 +74,24 @@ const styles = StyleSheet.create({
     }
 });
 const mapStateToProps = state => {
+    const statex =
+    {
+        stopSmokingDate: getStopSmokingDate(state),
+        cigsPerDay: state.settings.smoking.cigarettesPerDay,
+        cigsPerPack: state.settings.smoking.cigarettesPerPack,
+        pricePerPack: state.settings.smoking.pricePerPack
+    };
+
+    const cigs= calculateCigarettes(statex.stopSmokingDate, statex.cigsPerDay)
+    const packs = calculatePacks(cigs, statex.cigsPerPack);
+    const price = calculateSavedMoney(packs, statex.pricePerPack);
+
     return {
-        stopSmokingDate: getStopSmokingDate(state)
-    }
+        stopSmokingDate: getStopSmokingDate(state),
+        cigs: cigs,
+        packs: packs,
+        price: price
+    };
 };
 
 export default connect(mapStateToProps)(SavingsIndicator);

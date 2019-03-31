@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Container, Content, DatePicker, Form, Header, Icon, Input, Item, Label, Picker} from "native-base";
+import {Container, Content, DatePicker, Form, Header, Icon, Input, Item, Label, Picker, Title} from "native-base";
 import {
     CHANGE_CIGARETTE_BRAND,
     CHANGE_CIGARETTES_PER_DAY,
@@ -12,7 +12,9 @@ export class SmokingSettings extends Component {
     render() {
         return (
             <Container>
-                <Header/>
+                <Header transparent>
+                    <Title>Smoking Settings</Title>
+                </Header>
                 <Content>
                     <Form>
                         <Item stackedLabel>
