@@ -4,20 +4,14 @@ import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
 import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
 import SavingsIndicator from "./SavingsIndicator";
+import {getStopSmokingDate} from "../../state/selectors";
 
 class DashboardScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        const cigs = calculateCigarettes(this.props.settings.smoking.stopSmokingDate, this.props.settings.smoking.cigarettesPerDay);
-        const packs = calculatePacks(cigs, this.props.settings.smoking.cigarettesPerPack);
-        const money = calculateSavedMoney(packs, this.props.settings.smoking.pricePerPack);
-        console.log(cigs, packs, money);
         this.state = {
             cleanSince: createCleanSince(new Date(), this.props.settings.smoking.stopSmokingDate),
-            cigSavings: cigs,
-            packSavings: packs,
-            moneySavings: money
         };
     }
 
@@ -55,9 +49,9 @@ class DashboardScreen extends React.Component {
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
                         {this.state.cleanSince.seconds} Seconds
                     </Text>
-                    <SavingsIndicator savedMoney={this.state.moneySavings}
-                                      nonBoughtPacks={this.state.packSavings}
-                                      nonSmokedCigars={this.state.cigSavings}/>
+                    <SavingsIndicator savedMoney={this.props.price}
+                                      nonBoughtPacks={this.props.packs}
+                                      nonSmokedCigars={this.props.cigs}/>
                 </ScrollView>
             </View>
         );
@@ -76,9 +70,9 @@ class DashboardScreen extends React.Component {
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
                         {this.state.cleanSince.seconds} Seconds
                     </Text>
-                    <SavingsIndicator savedMoney={this.state.moneySavings}
-                                      nonBoughtPacks={this.state.packSavings}
-                                      nonSmokedCigars={this.state.cigSavings}/>
+                    <SavingsIndicator savedMoney={this.props.price}
+                                      nonBoughtPacks={this.props.packs}
+                                      nonSmokedCigars={this.props.cigs}/>
                 </ScrollView>
             </View>
         );
@@ -95,9 +89,9 @@ class DashboardScreen extends React.Component {
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
                         {this.state.cleanSince.seconds} Seconds
                     </Text>
-                    <SavingsIndicator savedMoney={this.state.moneySavings}
-                                      nonBoughtPacks={this.state.packSavings}
-                                      nonSmokedCigars={this.state.cigSavings}/>
+                    <SavingsIndicator savedMoney={this.props.price}
+                                      nonBoughtPacks={this.props.packs}
+                                      nonSmokedCigars={this.props.cigs}/>
                 </ScrollView>
             </View>
         );
@@ -147,9 +141,24 @@ const styles = StyleSheet.create({
     }
 });
 const mapStateToProps = state => {
+    const statex = {
+            settings: state.settings,
+            stopSmokingDate: getStopSmokingDate(state),
+            cigsPerDay: state.settings.smoking.cigarettesPerDay,
+            cigsPerPack: state.settings.smoking.cigarettesPerPack,
+            pricePerPack: state.settings.smoking.pricePerPack
+        };
+
+    const cigs= calculateCigarettes(statex.stopSmokingDate, statex.cigsPerDay);
+    const packs = calculatePacks(cigs, statex.cigsPerPack);
+    const price = calculateSavedMoney(packs, statex.pricePerPack);
+
     return {
-        settings: state.settings
-    }
+        settings: state.settings,
+        cigs: cigs,
+        packs: packs,
+        price: price
+    };
 };
 
 export const dashboardScreen = connect(mapStateToProps)(DashboardScreen);
