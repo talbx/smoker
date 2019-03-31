@@ -6,7 +6,7 @@ export class CleanSince {
     months: number;
     years: number;
 
-    constructor(years, months, days, hours, minutes, seconds) {
+    constructor(years: number, months: number, days: number, hours: number, minutes: number, seconds: number) {
         this.years = years;
         this.months = months;
         this.days = days;

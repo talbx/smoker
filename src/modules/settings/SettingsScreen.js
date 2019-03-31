@@ -15,7 +15,7 @@ class SettingsScreen extends Component {
                             <Icon name="ios-person"/>
                         </Left>
                         <Body>
-                        <Text>Profile</Text>
+                            <Text>Profile</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.settings.profile.username}</Text>
@@ -24,10 +24,10 @@ class SettingsScreen extends Component {
                     </ListItem>
                     <ListItem onPress={() => this.props.navigation.navigate("SmokingSettings")} icon>
                         <Left>
-                            <Icon type="MaterialCommunityIcons" name="smoking" />
+                            <Icon type="MaterialCommunityIcons" name="smoking"/>
                         </Left>
                         <Body>
-                        <Text>Stop Smoking Date</Text>
+                            <Text>Stop Smoking Date</Text>
                         </Body>
                         <Right>
                             <Icon name="arrow-forward"/>
@@ -38,7 +38,7 @@ class SettingsScreen extends Component {
                             <Icon name="ios-barcode"/>
                         </Left>
                         <Body>
-                        <Text>Cigs Per Day</Text>
+                            <Text>Cigs Per Day</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.settings.smoking.cigarettesPerDay}</Text>
@@ -50,7 +50,7 @@ class SettingsScreen extends Component {
                             <Icon name="ios-filing"/>
                         </Left>
                         <Body>
-                        <Text>Cigs Per Pack</Text>
+                            <Text>Cigs Per Pack</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.settings.smoking.cigarettesPerPack}</Text>
@@ -62,7 +62,7 @@ class SettingsScreen extends Component {
                             <Icon name="ios-analytics"/>
                         </Left>
                         <Body>
-                        <Text>Brand</Text>
+                            <Text>Brand</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.settings.smoking.cigaretteBrand}</Text>
@@ -74,7 +74,7 @@ class SettingsScreen extends Component {
                             <Icon name="ios-pricetag"/>
                         </Left>
                         <Body>
-                        <Text>Price per Pack</Text>
+                            <Text>Price per Pack</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.settings.smoking.pricePerPack}</Text>
@@ -93,4 +93,4 @@ const mapStateToProps = state => {
     }
 };
 
-export const settingsScreen = connect(mapStateToProps)(SettingsScreen);
+export default connect(mapStateToProps)(SettingsScreen);

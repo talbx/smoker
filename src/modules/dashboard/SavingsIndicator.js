@@ -28,16 +28,6 @@ class SavingsIndicator extends Component {
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 50,
-        //backgroundColor: '#95D3BF',
-    },
-    welcome: {
-        fontSize: 30,
-        textAlign: 'center',
-        margin: 20,
-    },
     instructions: {
         color: '#225344',
         textAlign: 'center',
@@ -45,27 +35,6 @@ const styles = StyleSheet.create({
         marginRight: 24,
         fontSize: 16,
         lineHeight: 30
-    },
-
-    boardicon: {
-        alignItems: 'center',
-        marginTop: 50
-    },
-    footer: {
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        position: 'absolute',
-        bottom: 0
-    },
-    startButton: {
-        width: 300,
-        height: 45,
-        backgroundColor: 'green',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 20
     }
 });
 const mapStateToProps = state => {

@@ -1,9 +1,8 @@
-import React from 'react';
-import {Text} from "react-native";
+import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Left, Container, Content, Header, Body, ListItem, Right, Title} from "native-base";
+import {Body, Container, Content, Header, Left, ListItem, Right, Text, Title} from "native-base";
 
-export class AboutScreen extends React.Component {
+class AboutScreen extends Component {
     render() {
         return (
             <Container>
@@ -13,7 +12,7 @@ export class AboutScreen extends React.Component {
                 <Content>
                     <ListItem>
                         <Left>
-                        <Text>App Name</Text>
+                            <Text>App Name</Text>
                         </Left>
                         <Right>
                             <Text>{this.props.about.appName}</Text>
@@ -21,7 +20,7 @@ export class AboutScreen extends React.Component {
                     </ListItem>
                     <ListItem>
                         <Left>
-                        <Text>Version</Text>
+                            <Text>Version</Text>
                         </Left>
                         <Right>
                             <Text>{this.props.about.version}</Text>
@@ -29,7 +28,7 @@ export class AboutScreen extends React.Component {
                     </ListItem>
                     <ListItem>
                         <Left>
-                        <Text>Build No.</Text>
+                            <Text>Build No.</Text>
                         </Left>
                         <Right>
                             <Text>{this.props.about.build}</Text>
@@ -37,7 +36,7 @@ export class AboutScreen extends React.Component {
                     </ListItem>
                     <ListItem>
                         <Left>
-                        <Text>Developer</Text>
+                            <Text>Developer</Text>
                         </Left>
                         <Right>
                             <Text>{this.props.about.developer}</Text>
@@ -45,7 +44,7 @@ export class AboutScreen extends React.Component {
                     </ListItem>
                     <ListItem>
                         <Left>
-                        <Text>Website</Text>
+                            <Text>Website</Text>
                         </Left>
                         <Body>
                             <Text>{this.props.about.website}</Text>
@@ -63,4 +62,4 @@ const mapStateToProps = state => {
     }
 };
 
-export const aboutScreen = connect(mapStateToProps)(AboutScreen);
+export default connect(mapStateToProps)(AboutScreen);
