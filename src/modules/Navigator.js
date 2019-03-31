@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Footer, FooterTab, Icon,} from 'native-base';
 import {createBottomTabNavigator} from "react-navigation";
-import {dashboardScreen} from "./dashboard/DashboardScreen";
+import DashboardScreen from "./dashboard/DashboardScreen";
 import {aboutStack, settingsStack} from "./Stacks";
 
 const DASHBOARD = "Dashboard";
@@ -9,7 +9,7 @@ const SETTINGS = "Settings";
 const ABOUT = "About";
 
 export const tabNavigator = createBottomTabNavigator({
-        Dashboard: {screen: dashboardScreen},
+        Dashboard: {screen: DashboardScreen},
         Settings: {screen: settingsStack},
         About: {screen: aboutStack}
     },

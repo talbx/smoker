@@ -1,15 +1,15 @@
 import {createStackNavigator} from "react-navigation";
-import {settingsScreen} from "./settings/SettingsScreen";
-import {profileSettings} from "./settings/ProfileSettings";
-import {smokingSettings} from "./settings/SmokingSettings";
-import {aboutScreen} from "./about/AboutScreen";
+import SettingsScreen from "./settings/SettingsScreen";
+import ProfileSettings from "./settings/ProfileSettings";
+import SmokingSettings from "./settings/SmokingSettings";
+import AboutScreen from "./about/AboutScreen";
 
 export const settingsStack = createStackNavigator({
-    SettingsOverview: {screen: settingsScreen},
-    ProfileSettings: {screen: profileSettings},
-    SmokingSettings: {screen: smokingSettings}
+    SettingsOverview: {screen: SettingsScreen},
+    ProfileSettings: {screen: ProfileSettings},
+    SmokingSettings: {screen: SmokingSettings}
 });
 
 export const aboutStack = createStackNavigator({
-    About: {screen: aboutScreen}
+    About: {screen: AboutScreen}
 });

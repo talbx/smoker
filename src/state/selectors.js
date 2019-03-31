@@ -9,9 +9,7 @@ export const getStopSmokingDate =
         (sets) => sets.stopSmokingDate);
 
 export function getProfileSettings() {
-
 }
 
 export function getApplicationInfo() {
-
 }

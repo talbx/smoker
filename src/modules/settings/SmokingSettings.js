@@ -8,7 +8,7 @@ import {
 } from "../../state/actions";
 import {connect} from "react-redux";
 
-export class SmokingSettings extends Component {
+class SmokingSettings extends Component {
     render() {
         return (
             <Container>
@@ -84,4 +84,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export const smokingSettings = connect(mapStateToProps, mapDispatchToProps)(SmokingSettings);
+export default connect(mapStateToProps, mapDispatchToProps)(SmokingSettings);

@@ -1,11 +1,14 @@
+import {getSmokerVersion} from "../utils/Version";
+
 export const initialState = {
     about: {
         appName: 'Smoker',
-        version: '1.0.0',
+        version: getSmokerVersion(),
         build: 'n/a',
         developer: 'tmbzld',
         website: 'github.com/talbx/smoker'
     },
+
     settings: {
         profile: {
             username: 'Tom',

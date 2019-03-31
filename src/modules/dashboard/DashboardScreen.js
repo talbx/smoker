@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
-import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
 import SavingsIndicator from "./SavingsIndicator";
 import {getStopSmokingDate} from "../../state/selectors";
+import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
 
 class DashboardScreen extends Component {
 
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 50,
-        //backgroundColor: '#95D3BF',
     },
     welcome: {
         fontSize: 30,
@@ -117,39 +116,18 @@ const styles = StyleSheet.create({
         marginRight: 24,
         fontSize: 16,
         lineHeight: 30
-    },
-
-    boardicon: {
-        alignItems: 'center',
-        marginTop: 50
-    },
-    footer: {
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        position: 'absolute',
-        bottom: 0
-    },
-    startButton: {
-        width: 300,
-        height: 45,
-        backgroundColor: 'green',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 20
     }
 });
 const mapStateToProps = state => {
     const statex = {
-            settings: state.settings,
-            stopSmokingDate: getStopSmokingDate(state),
-            cigsPerDay: state.settings.smoking.cigarettesPerDay,
-            cigsPerPack: state.settings.smoking.cigarettesPerPack,
-            pricePerPack: state.settings.smoking.pricePerPack
-        };
+        settings: state.settings,
+        stopSmokingDate: getStopSmokingDate(state),
+        cigsPerDay: state.settings.smoking.cigarettesPerDay,
+        cigsPerPack: state.settings.smoking.cigarettesPerPack,
+        pricePerPack: state.settings.smoking.pricePerPack
+    };
 
-    const cigs= calculateCigarettes(statex.stopSmokingDate, statex.cigsPerDay);
+    const cigs = calculateCigarettes(statex.stopSmokingDate, statex.cigsPerDay);
     const packs = calculatePacks(cigs, statex.cigsPerPack);
     const price = calculateSavedMoney(packs, statex.pricePerPack);
 
@@ -160,5 +138,4 @@ const mapStateToProps = state => {
         price: price
     };
 };
-
-export const dashboardScreen = connect(mapStateToProps)(DashboardScreen);
+export default connect(mapStateToProps)(DashboardScreen);
