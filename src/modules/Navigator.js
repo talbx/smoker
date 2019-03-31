@@ -1,30 +1,17 @@
 import React from 'react';
 import {Button, Footer, FooterTab, Icon,} from 'native-base';
-import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
+import {createBottomTabNavigator} from "react-navigation";
 import {dashboardScreen} from "./dashboard/DashboardScreen";
-import {aboutScreen} from "./about/AboutScreen";
-import {settingsScreen} from "./settings/SettingsScreen";
-
-import {profileSettings} from "./settings/ProfileSettings";
-import {smokingSettings} from "./settings/SmokingSettings";
+import {aboutStack, settingsStack} from "./Stacks";
 
 const DASHBOARD = "Dashboard";
 const SETTINGS = "Settings";
 const ABOUT = "About";
 
-export const settingsStack = createStackNavigator({
-        SettingsOverview: {screen: settingsScreen},
-        ProfileSettings: {screen: profileSettings},
-        SmokingSettings: {screen: smokingSettings}
-    },
-    {
-        order: ['SettingsOverview', 'ProfileSettings', 'SmokingSettings'],
-    });
-
 export const tabNavigator = createBottomTabNavigator({
         Dashboard: {screen: dashboardScreen},
         Settings: {screen: settingsStack},
-        About: {screen: aboutScreen}
+        About: {screen: aboutStack}
     },
     {
         tabBarPosition: 'bottom',

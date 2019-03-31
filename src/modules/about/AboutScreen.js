@@ -1,9 +1,8 @@
-import React from 'react';
-import {Text} from "react-native";
+import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Left, Container, Content, Header, Body, ListItem, Right, Title} from "native-base";
+import {Left, Text, Container, Content, Header, Body, ListItem, Right, Title} from "native-base";
 
-export class AboutScreen extends React.Component {
+export class AboutScreen extends Component {
     render() {
         return (
             <Container>

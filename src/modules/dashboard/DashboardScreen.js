@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
@@ -6,7 +6,7 @@ import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../ut
 import SavingsIndicator from "./SavingsIndicator";
 import {getStopSmokingDate} from "../../state/selectors";
 
-class DashboardScreen extends React.Component {
+class DashboardScreen extends Component {
 
     constructor(props) {
         super(props);
