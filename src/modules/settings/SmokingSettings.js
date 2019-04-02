@@ -7,6 +7,7 @@ import {
     CHANGE_STOP_SMOKING_DATE
 } from "../../state/actions";
 import {connect} from "react-redux";
+import {TextInput} from "react-native";
 
 class SmokingSettings extends Component {
     render() {
@@ -61,6 +62,12 @@ class SmokingSettings extends Component {
                             <Label>Cigarettes Per Pack</Label>
                             <Input onChangeText={(text) => this.props.changeCigsPerPack(text)}>
                                 {this.props.smoking.cigarettesPerPack}</Input>
+                        </Item>
+                        <Item stackedLabel>
+                            <Label>Price per Pack</Label>
+                            <TextInput keyboardType='numeric'>
+                                {this.props.smoking.pricePerPack}
+                            </TextInput>
                         </Item>
                     </Form>
                 </Content>
