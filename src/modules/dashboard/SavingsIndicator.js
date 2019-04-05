@@ -9,14 +9,15 @@ class SavingsIndicator extends Component {
     static propTypes = {
         savedMoney: PropTypes.number.isRequired,
         nonSmokedCigars: PropTypes.number.isRequired,
-        nonBoughtPacks: PropTypes.number.isRequired
+        nonBoughtPacks: PropTypes.number.isRequired,
+        brand: PropTypes.string.isRequired
     };
 
     render() {
         return (
             <View>
                 <Text style={styles.instructions}>You did not smoke a total of{"\n"}
-                    {this.props.nonSmokedCigars} Cigarettes, did not buy{"\n"}
+                    {this.props.nonSmokedCigars} {this.props.brand} Cigarettes, did not buy{"\n"}
                     {this.props.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
                     {this.props.savedMoney} $$$.{"\n"}
                     Your stop smoking date = {this.props.stopSmokingDate.toDateString()}

@@ -51,7 +51,8 @@ class DashboardScreen extends Component {
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
-                                      nonSmokedCigars={this.props.cigs}/>
+                                      nonSmokedCigars={this.props.cigs}
+                                      brand={this.props.brand}/>
                 </ScrollView>
             </View>
         );
@@ -72,7 +73,8 @@ class DashboardScreen extends Component {
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
-                                      nonSmokedCigars={this.props.cigs}/>
+                                      nonSmokedCigars={this.props.cigs}
+                                      brand={this.props.brand}/>
                 </ScrollView>
             </View>
         );
@@ -91,7 +93,8 @@ class DashboardScreen extends Component {
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
-                                      nonSmokedCigars={this.props.cigs}/>
+                                      nonSmokedCigars={this.props.cigs}
+                                      brand={this.props.brand}/>
                 </ScrollView>
             </View>
         );
@@ -135,7 +138,8 @@ const mapStateToProps = state => {
         settings: state.settings,
         cigs: cigs,
         packs: packs,
-        price: price
+        price: price,
+        brand: state.settings.smoking.cigaretteBrand
     };
 };
 export default connect(mapStateToProps)(DashboardScreen);
