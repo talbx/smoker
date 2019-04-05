@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: "5%",
-        marginLeft: "5%",
-        marginRight: "5%",
+        marginEnd: "2%",
+        marginStart: "2%",
         bottom: 0,
         position: 'relative',
         margin: 0
