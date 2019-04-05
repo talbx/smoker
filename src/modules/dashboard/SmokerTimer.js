@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     instructions: {
-        color: '#225344',
+        color: 'black',
+        fontWeight: 'bold',
         textAlign: 'center',
         marginLeft: 24,
         marginRight: 24,

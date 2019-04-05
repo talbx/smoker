@@ -49,9 +49,6 @@ class ProgressIndicator extends Component {
                         <Label>Cigarettes</Label>
                     </View>
                 </View>
-                <Button style={{alignSelf: 'center'}} bordered success>
-                    <Text>Success</Text>
-                </Button>
             </View>
         );
     }
@@ -65,11 +62,17 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         marginLeft: "5%",
         marginRight: "5%",
+        bottom: 0,
+        position: 'relative',
+        margin: 0
     },
     container: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        bottom: 0,
+        position: 'relative',
+        margin: 0
     },
     progress: {
         display: 'flex',

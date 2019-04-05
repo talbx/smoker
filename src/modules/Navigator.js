@@ -18,7 +18,6 @@ export const tabNavigator = createBottomTabNavigator({
             inactiveBackgroundColor: '#e91e63',
         },
         tabBarPosition: 'bottom',
-        swipeEnabled: true,
         tabBarComponent: props => {
             return (
                 <Footer>
