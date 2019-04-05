@@ -14,8 +14,11 @@ export const tabNavigator = createBottomTabNavigator({
         About: {screen: aboutStack}
     },
     {
+        tabBarOptions: {
+            inactiveBackgroundColor: '#e91e63',
+        },
         tabBarPosition: 'bottom',
-        swipeEnabled: false,
+        swipeEnabled: true,
         tabBarComponent: props => {
             return (
                 <Footer>

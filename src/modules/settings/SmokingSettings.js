@@ -3,10 +3,11 @@ import {Container, Content, DatePicker, Form, Header, Icon, Input, Item, Label, 
 import {
     CHANGE_CIGARETTE_BRAND,
     CHANGE_CIGARETTES_PER_DAY,
-    CHANGE_CIGARETTES_PER_PACK,
+    CHANGE_CIGARETTES_PER_PACK, CHANGE_PRICE_PER_PACK,
     CHANGE_STOP_SMOKING_DATE
 } from "../../state/actions";
 import {connect} from "react-redux";
+import {TextInput} from "react-native";
 
 class SmokingSettings extends Component {
     render() {
@@ -62,6 +63,13 @@ class SmokingSettings extends Component {
                             <Input onChangeText={(text) => this.props.changeCigsPerPack(text)}>
                                 {this.props.smoking.cigarettesPerPack}</Input>
                         </Item>
+                        <Item stackedLabel>
+                            <Label>Price per Pack</Label>
+                            <TextInput keyboardType='numeric'
+                            onChangeText={(price) => this.props.changePricePerPack(price)}>
+                                {this.props.smoking.pricePerPack}
+                            </TextInput>
+                        </Item>
                     </Form>
                 </Content>
             </Container>
@@ -81,6 +89,7 @@ const mapDispatchToProps = (dispatch) => {
         updateBrand: (brand) => dispatch({type: CHANGE_CIGARETTE_BRAND, payload: brand}),
         changeCigsPerDay: (cigs) => dispatch({type: CHANGE_CIGARETTES_PER_DAY, payload: cigs}),
         changeCigsPerPack: (cigs) => dispatch({type: CHANGE_CIGARETTES_PER_PACK, payload: cigs}),
+        changePricePerPack: (price) => dispatch({type: CHANGE_PRICE_PER_PACK, payload: price})
     }
 };
 
