@@ -20,8 +20,10 @@ class DashboardScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'space-between',
+        flexDirection: 'column',
         paddingTop: 50,
-    }
+}
 });
 const mapStateToProps = state => {
     return {

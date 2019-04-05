@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProgressCircle from 'react-native-progress-circle'
-import {StyleSheet, Text, View} from "react-native";
-import {Label} from 'native-base'
+import { StyleSheet, Text, View} from "react-native";
+import {Button, Label} from 'native-base'
 import {getStopSmokingDate} from "../../../state/selectors";
 import {connect} from "react-redux";
 import {calculateCigarettes, calculateLifetime, calculatePacks, calculateSavedMoney} from "../../../utils/Savings";
@@ -10,43 +10,48 @@ class ProgressIndicator extends Component {
 
     render() {
         return (
-            <View style={styles.progressContainer}>
-                <View style={styles.progress}>
-                    <ProgressCircle
-                        percent={34}
-                        radius={50}
-                        borderWidth={8}
-                        color={yellow}
-                        shadowColor="gainsboro"
-                        bgColor="white">
-                        <Text style={{fontSize: 18}}>{this.props.price}€</Text>
-                    </ProgressCircle>
-                    <Label>Cash</Label>
+            <View style={styles.container}>
+                <View style={styles.progressContainer}>
+                    <View style={styles.progress}>
+                        <ProgressCircle
+                            percent={34}
+                            radius={50}
+                            borderWidth={8}
+                            color={yellow}
+                            shadowColor="gainsboro"
+                            bgColor="white">
+                            <Text style={{fontSize: 18}}>{this.props.price}€</Text>
+                        </ProgressCircle>
+                        <Label>Cash</Label>
+                    </View>
+                    <View style={styles.progress}>
+                        <ProgressCircle
+                            percent={13}
+                            radius={50}
+                            borderWidth={8}
+                            color={red}
+                            shadowColor="gainsboro"
+                            bgColor="white">
+                            <Text style={{fontSize: 18}}>{this.props.lifetime} Days</Text>
+                        </ProgressCircle>
+                        <Label>Lifetime</Label>
+                    </View>
+                    <View style={styles.progress}>
+                        <ProgressCircle
+                            percent={66}
+                            radius={50}
+                            borderWidth={8}
+                            color={green}
+                            shadowColor="gainsboro"
+                            bgColor="white">
+                            <Text style={{fontSize: 18}}>{this.props.cigs}</Text>
+                        </ProgressCircle>
+                        <Label>Cigarettes</Label>
+                    </View>
                 </View>
-                <View style={styles.progress}>
-                    <ProgressCircle
-                        percent={13}
-                        radius={50}
-                        borderWidth={8}
-                        color={red}
-                        shadowColor="gainsboro"
-                        bgColor="white">
-                        <Text style={{fontSize: 18}}>{this.props.lifetime} Days</Text>
-                    </ProgressCircle>
-                    <Label>Lifetime</Label>
-                </View>
-                <View style={styles.progress}>
-                    <ProgressCircle
-                        percent={66}
-                        radius={50}
-                        borderWidth={8}
-                        color={green}
-                        shadowColor="gainsboro"
-                        bgColor="white">
-                        <Text style={{fontSize: 18}}>{this.props.cigs}</Text>
-                    </ProgressCircle>
-                    <Label>Cigarettes</Label>
-                </View>
+                <Button style={{alignSelf: 'center'}} bordered success>
+                    <Text>Success</Text>
+                </Button>
             </View>
         );
     }
@@ -61,13 +66,17 @@ const styles = StyleSheet.create({
         marginLeft: "5%",
         marginRight: "5%",
     },
-
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+    },
     progress: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        marginTop: "5%",
+        justifyContent: "space-between",
+        marginBottom: "20%"
     }
 });
 
