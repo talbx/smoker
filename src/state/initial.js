@@ -15,11 +15,11 @@ export const initialState = {
             gender: Gender.MALE
         },
         smoking: {
-            stopSmokingDate: new Date(2018, 11, 14),
+            stopSmokingDate: new Date(2018, 11, 11),
             cigarettesPerDay: 7,
             cigarettesPerPack: 21,
-            cigaretteBrand: "Gauloises",
-            pricePerPack: "6"
+            cigaretteBrand: "L&M",
+            pricePerPack: 6
         }
     }
 };
