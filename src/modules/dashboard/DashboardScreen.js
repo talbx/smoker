@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {Text} from 'native-base';
 import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
 import SavingsIndicator from "./SavingsIndicator";
@@ -47,7 +48,7 @@ class DashboardScreen extends Component {
                         {this.state.cleanSince.days} Days{"\n"}
                         {this.state.cleanSince.hours} Hours{"\n"}
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
-                        {this.state.cleanSince.seconds} Seconds
+                        {this.state.cleanSince.seconds} Seconds{"\n"}
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
@@ -69,7 +70,7 @@ class DashboardScreen extends Component {
                         {this.state.cleanSince.days} Days{"\n"}
                         {this.state.cleanSince.hours} Hours{"\n"}
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
-                        {this.state.cleanSince.seconds} Seconds
+                        {this.state.cleanSince.seconds} Seconds{"\n"}
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
@@ -89,7 +90,7 @@ class DashboardScreen extends Component {
                         {this.state.cleanSince.days} Days{"\n"}
                         {this.state.cleanSince.hours} Hours{"\n"}
                         {this.state.cleanSince.minutes} Minutes and{"\n"}
-                        {this.state.cleanSince.seconds} Seconds
+                        {this.state.cleanSince.seconds} Seconds{"\n"}
                     </Text>
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}

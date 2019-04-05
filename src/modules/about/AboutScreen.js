@@ -46,9 +46,9 @@ class AboutScreen extends Component {
                         <Left>
                             <Text>Website</Text>
                         </Left>
-                        <Body>
+                        <Right>
                             <Text>{this.props.about.website}</Text>
-                        </Body>
+                        </Right>
                     </ListItem>
                 </Content>
             </Container>

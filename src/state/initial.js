@@ -5,8 +5,8 @@ export const initialState = {
         appName: 'Smoker',
         version: getSmokerVersion(),
         build: 'n/a',
-        developer: 'tmbzld',
-        website: 'github.com/talbx/smoker'
+        developer: 'tom',
+        website: 'google.com'
     },
 
     settings: {

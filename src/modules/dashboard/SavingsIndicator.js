@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {Text} from 'native-base';
+import {StyleSheet, View} from "react-native";
 import * as PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getStopSmokingDate} from "../../state/selectors";
@@ -19,7 +20,7 @@ class SavingsIndicator extends Component {
                 <Text style={styles.instructions}>You did not smoke a total of{"\n"}
                     {this.props.nonSmokedCigars} {this.props.brand} Cigarettes, did not buy{"\n"}
                     {this.props.nonBoughtPacks} Packs of Cigarettes and saved{"\n"}
-                    {this.props.savedMoney} $$$.{"\n"}
+                    {this.props.savedMoney} €.{"\n"}
                     Your stop smoking date = {this.props.stopSmokingDate.toDateString()}
                 </Text>
             </View>
