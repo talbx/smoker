@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ImageBackground, StyleSheet, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {connect} from "react-redux";
 import SmokerTimer from "./SmokerTimer";
 import ProgressIndicator from "./components/ProgressIndicator";
