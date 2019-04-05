@@ -1,7 +1,7 @@
 import {
     CHANGE_CIGARETTE_BRAND,
     CHANGE_CIGARETTES_PER_DAY,
-    CHANGE_CIGARETTES_PER_PACK,
+    CHANGE_CIGARETTES_PER_PACK, CHANGE_GENDER,
     CHANGE_PRICE_PER_PACK,
     CHANGE_STOP_SMOKING_DATE,
     CHANGE_USERNAME
@@ -15,7 +15,18 @@ export const smokerReducer = (state = initialState, action) => {
                 ...state, settings: {
                     ...state.settings,
                     profile: {
+                        ...state.settings.profile,
                         username: action.payload,
+                    },
+                }
+            };
+        case CHANGE_GENDER:
+            return {
+                ...state, settings: {
+                    ...state.settings,
+                    profile: {
+                        ...state.settings.profile,
+                        gender: action.payload,
                     },
                 }
             };

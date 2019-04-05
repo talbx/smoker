@@ -1,5 +1,5 @@
 import {getSmokerVersion} from "../utils/Version";
-
+import {Gender} from "../modules/dashboard/model/Gender";
 export const initialState = {
     about: {
         appName: 'Smoker',
@@ -12,6 +12,7 @@ export const initialState = {
     settings: {
         profile: {
             username: 'Tom',
+            gender: Gender.MALE
         },
         smoking: {
             stopSmokingDate: new Date(2018, 11, 14),

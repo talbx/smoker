@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {createCleanSince} from "../../utils/TimerUtils";
 import SavingsIndicator from "./SavingsIndicator";
 import {getStopSmokingDate} from "../../state/selectors";
-import {calculateCigarettes, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
+import {calculateCigarettes, calculateLifetime, calculatePacks, calculateSavedMoney} from "../../utils/Savings";
 
 class DashboardScreen extends Component {
 
@@ -53,7 +53,8 @@ class DashboardScreen extends Component {
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
                                       nonSmokedCigars={this.props.cigs}
-                                      brand={this.props.brand}/>
+                                      brand={this.props.brand}
+                                      lifetime={this.props.lifetime}/>
                 </ScrollView>
             </View>
         );
@@ -75,7 +76,8 @@ class DashboardScreen extends Component {
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
                                       nonSmokedCigars={this.props.cigs}
-                                      brand={this.props.brand}/>
+                                      brand={this.props.brand}
+                                      lifetime={this.props.lifetime}/>
                 </ScrollView>
             </View>
         );
@@ -95,7 +97,8 @@ class DashboardScreen extends Component {
                     <SavingsIndicator savedMoney={this.props.price}
                                       nonBoughtPacks={this.props.packs}
                                       nonSmokedCigars={this.props.cigs}
-                                      brand={this.props.brand}/>
+                                      brand={this.props.brand}
+                                      lifetime={this.props.lifetime}/>
                 </ScrollView>
             </View>
         );
@@ -128,19 +131,22 @@ const mapStateToProps = state => {
         stopSmokingDate: getStopSmokingDate(state),
         cigsPerDay: state.settings.smoking.cigarettesPerDay,
         cigsPerPack: state.settings.smoking.cigarettesPerPack,
-        pricePerPack: state.settings.smoking.pricePerPack
+        pricePerPack: state.settings.smoking.pricePerPack,
+        gender: state.settings.profile.gender
     };
 
     const cigs = calculateCigarettes(statex.stopSmokingDate, statex.cigsPerDay);
     const packs = calculatePacks(cigs, statex.cigsPerPack);
     const price = calculateSavedMoney(packs, statex.pricePerPack);
+    const lifetime = calculateLifetime(cigs, statex.gender);
 
     return {
         settings: state.settings,
         cigs: cigs,
         packs: packs,
         price: price,
-        brand: state.settings.smoking.cigaretteBrand
+        brand: state.settings.smoking.cigaretteBrand,
+        lifetime: lifetime
     };
 };
 export default connect(mapStateToProps)(DashboardScreen);
