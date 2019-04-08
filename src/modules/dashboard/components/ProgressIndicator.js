@@ -1,20 +1,29 @@
 import React, {Component} from 'react';
 import ProgressCircle from 'react-native-progress-circle'
-import { StyleSheet, Text, View} from "react-native";
-import {Button, Label} from 'native-base'
+import {StyleSheet, Text, View} from "react-native";
+import {Label} from 'native-base'
 import {getStopSmokingDate} from "../../../state/selectors";
 import {connect} from "react-redux";
 import {calculateCigarettes, calculateLifetime, calculatePacks, calculateSavedMoney} from "../../../utils/Savings";
+import {evaluateLevel} from "../../levels/Level";
 
 class ProgressIndicator extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
+
     render() {
+        let cigarettePercentage = (this.props.cigs / evaluateLevel(this.props.cigs, this.props.price).cigarettesGoal) * 100;
+        let cashPercentage = (this.props.price / evaluateLevel(this.props.cigs, this.props.price).cashGoal) * 100;
+
         return (
             <View style={styles.container}>
                 <View style={styles.progressContainer}>
                     <View style={styles.progress}>
                         <ProgressCircle
-                            percent={34}
+                            percent={cashPercentage}
                             radius={50}
                             borderWidth={8}
                             color={yellow}
@@ -38,7 +47,7 @@ class ProgressIndicator extends Component {
                     </View>
                     <View style={styles.progress}>
                         <ProgressCircle
-                            percent={66}
+                            percent={cigarettePercentage}
                             radius={50}
                             borderWidth={8}
                             color={green}
@@ -49,6 +58,7 @@ class ProgressIndicator extends Component {
                         <Label>Cigarettes</Label>
                     </View>
                 </View>
+                <Text>Level {evaluateLevel(this.props.cigs, this.props.price).name}</Text>
             </View>
         );
     }

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {Container, Content, Form, Header, Icon, Input, Item, Label, Picker, Title} from 'native-base'
 import {connect} from "react-redux";
-import {CHANGE_GENDER, CHANGE_USERNAME} from "../../state/actions";
-import {Gender} from "../dashboard/model/Gender";
+import {CHANGE_GENDER, CHANGE_USERNAME} from "../../../state/actions";
+import {Gender} from "../../dashboard/model/Gender";
 
 class ProfileSettings extends Component {
     render() {

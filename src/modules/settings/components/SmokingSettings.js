@@ -5,7 +5,7 @@ import {
     CHANGE_CIGARETTES_PER_DAY,
     CHANGE_CIGARETTES_PER_PACK, CHANGE_PRICE_PER_PACK,
     CHANGE_STOP_SMOKING_DATE
-} from "../../state/actions";
+} from "../../../state/actions";
 import {connect} from "react-redux";
 import {TextInput} from "react-native";
 

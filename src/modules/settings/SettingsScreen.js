@@ -30,6 +30,7 @@ class SettingsScreen extends Component {
                             <Text>Stop Smoking Date</Text>
                         </Body>
                         <Right>
+                            <Text>{this.props.settings.smoking.stopSmokingDate.toDateString()}</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
@@ -77,7 +78,7 @@ class SettingsScreen extends Component {
                             <Text>Price per Pack</Text>
                         </Body>
                         <Right>
-                            <Text>{this.props.settings.smoking.pricePerPack}</Text>
+                            <Text>{this.props.settings.smoking.pricePerPack}€</Text>
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
