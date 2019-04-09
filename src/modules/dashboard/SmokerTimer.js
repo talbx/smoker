@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 
 class SmokerTimer extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = {

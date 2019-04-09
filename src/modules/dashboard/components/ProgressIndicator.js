@@ -13,7 +13,6 @@ class ProgressIndicator extends Component {
         super(props);
     }
 
-
     render() {
         let cigarettePercentage = (this.props.cigs / evaluateLevel(this.props.cigs, this.props.price).cigarettesGoal) * 100;
         let cashPercentage = (this.props.price / evaluateLevel(this.props.cigs, this.props.price).cashGoal) * 100;
@@ -41,9 +40,9 @@ class ProgressIndicator extends Component {
                             color={red}
                             shadowColor="gainsboro"
                             bgColor="white">
-                            <Text style={{fontSize: 18}}>{this.props.lifetime} Days</Text>
+                            <Text style={{fontSize: 18}}>{this.props.packs} Packs</Text>
                         </ProgressCircle>
-                        <Label>Lifetime</Label>
+                        <Label>Packs</Label>
                     </View>
                     <View style={styles.progress}>
                         <ProgressCircle
@@ -58,7 +57,7 @@ class ProgressIndicator extends Component {
                         <Label>Cigarettes</Label>
                     </View>
                 </View>
-                <Text>Level {evaluateLevel(this.props.cigs, this.props.price).name}</Text>
+                <Text style={styles.level}>You are on level {evaluateLevel(this.props.cigs, this.props.price).name}</Text>
             </View>
         );
     }
@@ -90,6 +89,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: "space-between",
         marginBottom: "20%"
+    },
+    level: {
+        textAlign: 'center'
     }
 });
 
