@@ -1,9 +1,8 @@
 import React, {Component} from "react";
-import {Text} from 'native-base';
-import {StyleSheet, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import * as PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getStopSmokingDate} from "../../state/selectors";
+import {getStopSmokingDate} from "../../../state/selectors";
 
 class SavingsIndicator extends Component {
 
