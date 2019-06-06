@@ -12,6 +12,10 @@ export class Level {
 }
 
 export function evaluateLevel(cigs, cash): Level {
+    return new Level("Any", 500, 500);
+}
+
+export function evaluateLevel2(cigs, cash): Level {
 
     if (cigs < 500 && cash < 50) {
         return new Level("1", 600, 100);

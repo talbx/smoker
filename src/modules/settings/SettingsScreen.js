@@ -82,6 +82,18 @@ class SettingsScreen extends Component {
                             <Icon name="arrow-forward"/>
                         </Right>
                     </ListItem>
+                    <ListItem onPress={() => this.props.navigation.navigate("LevelsOverview")} icon>
+                        <Left>
+                            <Icon name="ios-cube"/>
+                        </Left>
+                        <Body>
+                            <Text>Levels</Text>
+                        </Body>
+                        <Right>
+                            <Text>{this.props.settings.profile.level}</Text>
+                            <Icon name="arrow-forward"/>
+                        </Right>
+                    </ListItem>
                 </Content>
             </Container>
         );

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import ProgressCircle from 'react-native-progress-circle'
-import {StyleSheet, Text, View} from "react-native";
+import {Button, StyleSheet, Text, View} from "react-native";
 import {Label} from 'native-base'
 import {getStopSmokingDate} from "../../../state/selectors";
 import {connect} from "react-redux";
 import {calculateCigarettes, calculateLifetime, calculatePacks, calculateSavedMoney} from "../../../utils/Savings";
 import {evaluateLevel} from "../../levels/Level";
+import {SET_LEVEL} from "../../../state/actions";
 
 class ProgressIndicator extends Component {
 
@@ -57,7 +58,10 @@ class ProgressIndicator extends Component {
                         <Label>Cigarettes</Label>
                     </View>
                 </View>
-                <Text style={styles.level}>You are on level {evaluateLevel(this.props.cigs, this.props.price).name}</Text>
+                <Button title={"You are on level: " + this.props.level.name}
+                        style={styles.level}
+                        onPress={() => this.props.navigation.navigate("SettingsOverview")}>
+                </Button>
             </View>
         );
     }
@@ -99,6 +103,14 @@ const yellow = 'khaki';
 const green = 'limegreen';
 const red = 'tomato';
 
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLevel: (level) => dispatch({type: SET_LEVEL, payload: level}),
+    }
+};
+
+
 const mapStateToProps = state => {
     const statex = {
         settings: state.settings,
@@ -113,14 +125,19 @@ const mapStateToProps = state => {
     const packs = calculatePacks(cigs, statex.cigsPerPack);
     const price = calculateSavedMoney(packs, statex.pricePerPack);
     const lifetime = calculateLifetime(cigs, statex.gender);
+    const level = evaluateLevel(statex.settings.profile.level, price);
+
+    mapDispatchToProps(level);
 
     return {
+        navigation: state.navigation,
         settings: state.settings,
         cigs: cigs,
         packs: packs,
         price: price,
         brand: state.settings.smoking.cigaretteBrand,
-        lifetime: lifetime
+        lifetime: lifetime,
+        level: level
     };
 };
 

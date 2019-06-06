@@ -11,7 +11,7 @@ class SavingsIndicator extends Component {
         nonSmokedCigars: PropTypes.number.isRequired,
         nonBoughtPacks: PropTypes.number.isRequired,
         brand: PropTypes.string.isRequired,
-        lifetime: PropTypes.number.isRequired
+        lifetime: PropTypes.number
     };
 
     render() {

@@ -16,8 +16,5 @@ export function calculatePacks(cigarettes, cigsPerPack) {
 }
 
 export function calculateLifetime(cigsPerDay, gender) {
-    if (gender === Gender.MALE) {
-        return cigsPerDay * 0, 94;
-    }
-    return cigsPerDay * 0, 73;
+    return gender === Gender.MALE ? cigsPerDay * 0.94 : cigsPerDay * 0.73;
 }

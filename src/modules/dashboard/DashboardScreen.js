@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {AsyncStorage, ImageBackground, StyleSheet, View} from 'react-native';
 import {connect} from "react-redux";
 import SmokerTimer from "./SmokerTimer";
 import ProgressIndicator from "./components/ProgressIndicator";
+import {LOAD_STATE} from "../../state/actions";
+import {fakeState} from "../../state/fake.state";
 
 class DashboardScreen extends Component {
+
+    async componentDidMount() {
+        console.log("setting fake state");
+        AsyncStorage.setItem('state', JSON.stringify(fakeState));
+    }
 
     render() {
         return (
@@ -18,6 +25,20 @@ class DashboardScreen extends Component {
                 </ImageBackground>
             </View>
         );
+    }
+
+    async load() {
+        let item = await AsyncStorage.getItem('state');
+        if (item) {
+            let parse = JSON.parse(item);
+            console.log("state from storeage.");
+            console.log(parse);
+            this.props.loadState(item);
+        }
+    }
+
+    fetch() {
+        console.log(this.props.settings.profile.username)
     }
 }
 
@@ -36,4 +57,10 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(DashboardScreen);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadState: (state) => dispatch({type: LOAD_STATE, payload: state}),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardScreen);

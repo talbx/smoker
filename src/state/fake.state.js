@@ -1,26 +1,26 @@
 import {getSmokerVersion} from "../utils/Version";
 import {Gender} from "../modules/dashboard/model/Gender";
-export const initialState = {
+export const fakeState = {
     about: {
         appName: 'Smoker',
         version: getSmokerVersion(),
         build: 'n/a',
-        developer: 'tom',
-        website: 'google.com'
+        developer: 'james',
+        website: 'bing.com'
     },
 
     settings: {
         profile: {
-            username: 'Tom',
-            gender: Gender.MALE,
+            username: 'cristiana',
+            gender: Gender.FEMALE,
             level: 1
         },
         smoking: {
-            stopSmokingDate: new Date(2018, 11, 11),
-            cigarettesPerDay: 7,
-            cigarettesPerPack: 21,
+            stopSmokingDate: new Date(2015, 11, 11),
+            cigarettesPerDay: 1,
+            cigarettesPerPack: 1,
             cigaretteBrand: "L&M",
-            pricePerPack: 6
+            pricePerPack: 1
         }
     }
 };

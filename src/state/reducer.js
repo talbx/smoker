@@ -1,17 +1,24 @@
 import {
     CHANGE_CIGARETTE_BRAND,
     CHANGE_CIGARETTES_PER_DAY,
-    CHANGE_CIGARETTES_PER_PACK, CHANGE_GENDER,
+    CHANGE_CIGARETTES_PER_PACK,
+    CHANGE_GENDER,
     CHANGE_PRICE_PER_PACK,
     CHANGE_STOP_SMOKING_DATE,
-    CHANGE_USERNAME
+    CHANGE_USERNAME,
+    LOAD_STATE
 } from "./actions";
 import {initialState} from "./initial";
+import {AsyncStorage} from "react-native";
 
 export const smokerReducer = (state = initialState, action) => {
+    let newstate;
+
+    console.log(action);
+
     switch (action.type) {
         case CHANGE_USERNAME:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     profile: {
@@ -20,8 +27,9 @@ export const smokerReducer = (state = initialState, action) => {
                     },
                 }
             };
+            break;
         case CHANGE_GENDER:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     profile: {
@@ -30,8 +38,9 @@ export const smokerReducer = (state = initialState, action) => {
                     },
                 }
             };
+            break;
         case CHANGE_STOP_SMOKING_DATE:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
@@ -40,8 +49,9 @@ export const smokerReducer = (state = initialState, action) => {
                     }
                 }
             };
+            break;
         case CHANGE_CIGARETTES_PER_DAY:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
@@ -50,8 +60,9 @@ export const smokerReducer = (state = initialState, action) => {
                     }
                 }
             };
+            break;
         case CHANGE_CIGARETTE_BRAND:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
@@ -60,8 +71,9 @@ export const smokerReducer = (state = initialState, action) => {
                     }
                 }
             };
+            break;
         case CHANGE_PRICE_PER_PACK:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
@@ -70,8 +82,9 @@ export const smokerReducer = (state = initialState, action) => {
                     }
                 }
             };
+            break;
         case CHANGE_CIGARETTES_PER_PACK:
-            return {
+            newstate = {
                 ...state, settings: {
                     ...state.settings,
                     smoking: {
@@ -80,9 +93,17 @@ export const smokerReducer = (state = initialState, action) => {
                     }
                 }
             };
+            break;
+
+        case LOAD_STATE: {
+            console.log("is load stae");
+            return state;
+        }
         default:
-            return {
+            newstate = {
                 ...state
             };
     }
+    AsyncStorage.setItem('state', JSON.stringify(newstate));
+    return newstate;
 };
